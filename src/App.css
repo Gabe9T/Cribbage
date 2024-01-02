@@ -2,11 +2,27 @@
   width: 80px;
   margin-right: -20px;
 }
+.handCardButton {
+  border: none;
+  background-color: transparent;
+}
+.handCardImage {
+  width: 80px;
+  margin-right: -30px;
+}
 
 .cribCard {
   width: 80px;
-  margin-right: -20px;
+  /* margin-right: -20px; */
 }
+
+.blankCribCard {
+  width: 80px;
+  height: 115px;
+  /* margin-right: -20px; */
+  margin-bottom: -1.5px;
+}
+
 .deckCard {
   width: 80px;
   margin-right: -77px;
