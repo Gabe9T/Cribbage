@@ -6,7 +6,6 @@ import { Player1Hand } from './components/Player1Hand';
 import { Player1Score } from './components/Player1Score';
 import { Player2Hand } from './components/Player2Hand';
 import { Player2Score } from './components/Player2Score';
-// import { Deal } from './components/Deal';
 import './App.css';
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
 
   useEffect(() => {
     if (hands.length === 0) {
-      fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=12')
+      fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=13')
           .then(response => {
               if (!response.ok) {
                   throw new Error(`${response.status}: ${response.statusText}`);
@@ -44,7 +43,9 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <CardDeck />
+      <br></br>
+      <br></br>
+      <CardDeck hands={hands}/>
       <Crib />
       <div id='hands'>
         <Player1Hand hands={hands}/>

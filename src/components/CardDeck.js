@@ -1,16 +1,15 @@
-export const CardDeck = () => {
+export const CardDeck = ({ hands }) => {
     return (
         <>
-        <h1>cardDeck</h1>
-        <button type="click">Deal a Hand</button>
             <div id="deck">
                 <img className="deckCard" src="https://deckofcardsapi.com/static/img/back.png" alt="card back" />
                 <img className="deckCard" src="https://deckofcardsapi.com/static/img/back.png" alt="card back" />
                 <img className="deckCard" src="https://deckofcardsapi.com/static/img/back.png" alt="card back" />
                 <img className="deckCard" src="https://deckofcardsapi.com/static/img/back.png" alt="card back" />
                 <img className="deckCard" src="https://deckofcardsapi.com/static/img/back.png" alt="card back" />
-                <img className="deckCard" src="https://deckofcardsapi.com/static/img/KH.png" alt="flipped card" />
+                <img className="deckCard" src={hands[12].image} alt="flipped card" />
             </div>
+            <button type="click">Deal a Hand</button>
         </>
     )
 }
