@@ -3,10 +3,23 @@
   margin-right: -20px;
 }
 
+.cribCard {
+  width: 80px;
+  margin-right: -20px;
+}
+.deckCard {
+  width: 80px;
+  margin-right: -77px;
+}
+
 #hands {
   margin-top: 0px;
   columns: 2;
 }
 #scores{
   columns: 2;
+}
+
+#deck {
+  margin: 10px;
 }
