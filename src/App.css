@@ -128,7 +128,14 @@ body {
 }
 
 #playAgainButton {
+margin-left: auto;
+margin-right: auto;
 font-size: 30px;
 height: 50px;
 width: 300px;
+}
+
+#playAgainButtonDiv {
+  display: flex;
+  justify-content: center;
 }

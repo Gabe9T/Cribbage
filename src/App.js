@@ -18,11 +18,16 @@ function App() {
     const [player2Score, setPlayer2Score] = useState(0);
     const [winState, setWinState] = useState(false);
     const [winner, setWinner] = useState(null);
+    const [loser, setLoser] = useState(null);
     const [dealer, setDealer] = useState("Player 1")
 
     const updatePlayer1Score = (newScore) => {
         setPlayer1Score(newScore);
-        if (newScore > 120) {
+        if (newScore > 120 && player2Score < 90) {
+            setWinState("skunk")
+            setWinner(1)
+            setLoser(2)
+        } else if (newScore > 120) {
             setWinState(true)
             setWinner(1)
         }
@@ -43,7 +48,11 @@ function App() {
 
     const updatePlayer2Score = (newScore) => {
         setPlayer2Score(newScore);
-        if (newScore > 120) {
+        if (newScore > 120 && player1Score < 90) {
+            setWinState("skunk")
+            setWinner(2)
+            setLoser(1)
+        } else if (newScore > 120) {
             setWinState(true)
             setWinner(2)
         }
@@ -87,11 +96,11 @@ function App() {
             .catch(error => {
                 setError(error.message);
             });
-            if (dealer === "Player 1") {
-                setDealer("Player 2");
-            }   else {
-                setDealer("Player 1");
-            }
+        if (dealer === "Player 1") {
+            setDealer("Player 2");
+        } else {
+            setDealer("Player 1");
+        }
     };
 
     const putCardInCrib = (card) => {
@@ -141,7 +150,7 @@ function App() {
                             putCardInCrib={putCardInCrib}
                             score={player2Score}
                             dealer={dealer}
-                            setGamePhase={setGamePhase}  />
+                            setGamePhase={setGamePhase} />
                         <br></br>
                         <Player2Score score={player2Score} setScore={updatePlayer2Score} />
                     </div>
@@ -153,12 +162,25 @@ function App() {
 
             </React.Fragment>
         );
+    } else if (winState === true) {
+        return (
+            <>
+                <img id='winGif' src='https://media4.giphy.com/media/Ceq96LjQ9Wmpq/giphy.gif' alt='win'></img>
+                <h1 id='winH1'>Player {winner} Wins!</h1>
+                <button id='playAgainButton' className='scoreButton' type='click' onClick={newGame}>Play Again</button>
+            </>
+        )
     } else {
         return (
             <>
                 <img id='winGif' src='https://media4.giphy.com/media/Ceq96LjQ9Wmpq/giphy.gif' alt='win'></img>
-                    <h1 id='winH1'>Player {winner} Wins!</h1>
+                <h1 id='winH1'>Player {winner} Wins!</h1>
+                <div id='playAgainButtonDiv'>
                     <button id='playAgainButton' className='scoreButton' type='click' onClick={newGame}>Play Again</button>
+                </div>
+                <h2>Player {loser} Got Skunked!</h2>
+                <img src='https://media3.giphy.com/media/XGlouuGIURFGLsH3J6/200w.gif?cid=6c09b952j2cyply7qbqcmwcvvpqg8qlvq9eiqvldu3csozpn&ep=v1_gifs_search&rid=200w.gif&ct=s' alt='skunk' />
+
             </>
         )
     }
