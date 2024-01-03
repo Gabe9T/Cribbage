@@ -15,6 +15,7 @@ function App() {
   const [hands, setHands] = useState([]);
   const [crib, setCrib] = useState([]);
   const [gamePhase, setGamePhase] = useState('The Crib');
+  const [clickedIndexes, setClickedIndexes] = useState([]);
 
   const fetchNewHand = async () => {
     try {
@@ -48,6 +49,8 @@ function App() {
       .then(newHand => {
         setHands(newHand);
         setCrib([]);
+        setGamePhase("The Crib")
+        setClickedIndexes([])
       })
       .catch(error => {
         setError(error.message);
@@ -55,8 +58,12 @@ function App() {
   };
 
   const putCardInCrib = (card) => {
-    setCrib(prevCrib => [...prevCrib, card]);
-    console.log(crib);
+    const newCrib = [...crib, card]
+    setCrib(newCrib);
+    if (newCrib.length === 4) {
+      setGamePhase("The Go")
+    }
+    
   };
 
   if (error) {
@@ -71,12 +78,12 @@ function App() {
       <Header />
       <br></br>
       <br></br>
-      <CardDeck hands={hands} onDeal={handleDeal} />
-      <Crib crib={crib} />
+      <CardDeck gamePhase={gamePhase} hands={hands} onDeal={handleDeal} />
+      <Crib crib={crib} gamePhase={gamePhase} />
       <PhaseSelector gamePhase={gamePhase} setGamePhase={setGamePhase} />
       <div id='hands'>
-        <Player1Hand hands={hands} putCardInCrib={putCardInCrib} />
-        <Player2Hand hands={hands} putCardInCrib={putCardInCrib} />
+        <Player1Hand clickedIndexes={clickedIndexes} gamePhase={gamePhase} hands={hands} putCardInCrib={putCardInCrib} />
+        <Player2Hand clickedIndexes={clickedIndexes} gamePhase={gamePhase} hands={hands} putCardInCrib={putCardInCrib} />
       </div>
       <div id='scores'>
         <Player1Score />

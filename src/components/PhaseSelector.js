@@ -6,7 +6,6 @@ export const PhaseSelector = ({ gamePhase, setGamePhase }) => {
     return (
         <select value={gamePhase} onChange={handlePhaseChange}>
             <option value="The Crib">The Crib</option>
-            <option value="The Play">The Play</option>
             <option value="The Go">The Go</option>
             <option value="The Count">The Count</option>
         </select>

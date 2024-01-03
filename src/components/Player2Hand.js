@@ -1,23 +1,31 @@
 import { useState, useEffect } from "react";
 
-export const Player2Hand = ({ hands, putCardInCrib }) => {
+export const Player2Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes }) => {
     const [displayedHand, setDisplayedHand] = useState([]);
+    const [handClickedIndexes, setHandClickedIndexes] = useState(clickedIndexes);
 
     useEffect(() => {
-        // Set the displayed hand initially and update when 'hands' prop changes
+        setHandClickedIndexes(clickedIndexes);
+    }, [clickedIndexes]);
+    
+    useEffect(() => {
         setDisplayedHand(hands.slice(6, 12));
     }, [hands]);
 
     const handleCardClick = (index) => {
-        putCardInCrib(hands[index+6]);
-
-        // Update the displayed hand by removing the clicked card
-        setDisplayedHand(prevDisplayedHand =>
-            prevDisplayedHand.filter((_, i) => i !== index)
-        );
-
-        console.log(`Clicked on card ${index + 1}: ${hands[index].image}`);
-        // You can call a function here or perform any other action
+        if (gamePhase === "The Crib") {
+            putCardInCrib(displayedHand[index]);
+            setDisplayedHand(prevDisplayedHand =>
+                prevDisplayedHand.filter((_, i) => i !== index)
+            );
+        } else {
+            setHandClickedIndexes(prevIndexes => {
+                if (!prevIndexes.includes(index)) {
+                    return [...prevIndexes, index];
+                }
+                return prevIndexes;
+            });
+        }
     };
 
     return (
@@ -30,7 +38,7 @@ export const Player2Hand = ({ hands, putCardInCrib }) => {
                     onClick={() => handleCardClick(index)}
                 >
                     <img
-                        className="handCardImage"
+                        className={`handCardImage ${handClickedIndexes.includes(index) ? "slide-up" : ""}`}
                         src={card.image}
                         alt="card back"
                     />
