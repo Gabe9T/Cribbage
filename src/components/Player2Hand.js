@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-export const Player2Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes }) => {
+export const Player2Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes, score }) => {
     const [displayedHand, setDisplayedHand] = useState([]);
     const [handClickedIndexes, setHandClickedIndexes] = useState(clickedIndexes);
 
     useEffect(() => {
         setHandClickedIndexes(clickedIndexes);
     }, [clickedIndexes]);
-    
+
     useEffect(() => {
         setDisplayedHand(hands.slice(6, 12));
     }, [hands]);
@@ -30,7 +30,10 @@ export const Player2Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes })
 
     return (
         <>
-            <h1>Player 2 Hand</h1>
+            <div className="playerRow">
+                <h2 id="player2h1">Player Two</h2>
+                <h2>Score: {score}</h2>
+            </div>
             {displayedHand.map((card, index) => (
                 <button
                     key={index}

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export const Player2Score = () => {
-    const [score, setScore] = useState(0);
+export const Player2Score = ({ score, setScore }) => {
 
     const add1 = () => {
         setScore(score + 1);
@@ -29,17 +28,17 @@ export const Player2Score = () => {
 
     return (
         <>
-            <h1>Player 2 Score</h1>
-            <button type="click" onClick={add1}>Knobs</button>
-            <button type="click" onClick={add2}>Fifteen</button>
-            <button type="click" onClick={add2}>Pair</button>
-            <button type="click" onClick={add3}>Run of 3</button>
-            <button type="click" onClick={add4}>Run of 4</button>
-            <button type="click" onClick={add5}>Run of 5</button>
-            <button type="click" onClick={add4}>Flush of 4</button>
-            <button type="click" onClick={add5}>Flush of 5</button>
-            <button type="click" onClick={minus1}>-1</button>
-            <h3>Score: {score}</h3>
+            <button className="scoreButton" type="click" onClick={add1}>Knobs</button>
+            <button className="scoreButton" type="click" onClick={add2}>Fifteen</button>
+            <button className="scoreButton" type="click" onClick={add2}>Thirty-One</button>
+            <button className="scoreButton" type="click" onClick={add2}>Pair</button>
+            <button className="scoreButton" type="click" onClick={add3}>Run of 3</button>
+            <button className="scoreButton" type="click" onClick={add4}>Run of 4</button>
+            <button className="scoreButton" type="click" onClick={add5}>Run of 5</button>
+            <button className="scoreButton" type="click" onClick={add4}>Flush of 4</button>
+            <button className="scoreButton" type="click" onClick={add5}>Flush of 5</button>
+            <button className="scoreButton" type="click" onClick={add1}>Last Card</button>
+            <button id="twoMinus" className="scoreButton" type="click" onClick={minus1}>-1</button>
         </>
     );
 };
