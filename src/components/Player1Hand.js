@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const Player1Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes, score }) => {
+export const Player1Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes, score, dealer, setGamePhase }) => {
     const [displayedHand, setDisplayedHand] = useState([]);
     const [handClickedIndexes, setHandClickedIndexes] = useState(clickedIndexes);
 
@@ -25,6 +25,9 @@ export const Player1Hand = ({ hands, putCardInCrib, gamePhase, clickedIndexes, s
                 }
                 return prevIndexes;
             });
+        }
+        if (dealer === "Player 1" && handClickedIndexes.length === 3) {
+            setGamePhase("The Count")
         }
     };
 

@@ -76,3 +76,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Skunk
 
 Win animation?
+
+Automate go to the count after all cards played
+
+Improve buttons
+
+look into material UI?
+
+crib piles up when complete? and unpiles when revealed?

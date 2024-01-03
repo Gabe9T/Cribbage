@@ -1,5 +1,5 @@
 body {
-  background-color: #00b500;
+  background-color: #007d17;
 }
 
 .handCard {
@@ -17,19 +17,16 @@ body {
 }
 
 .slide-up {
-  /* Specify the transformation for the slide-up effect */
-  transform: translateY(-20px); /* Adjust the value as needed */
+  transform: translateY(-20px);
 }
 
 .cribCard {
   width: 80px;
-  /* margin-right: -20px; */
 }
 
 .blankCribCard {
   width: 80px;
   height: 115px;
-  /* margin-right: -20px; */
   margin-bottom: -1.5px;
 }
 
@@ -117,4 +114,21 @@ body {
 }
 #player2hand {
   width: 450px;
+}
+
+#winGif {
+  width: 100%;
+}
+
+#winH1 {
+  text-align: center;
+  margin-top: -400px;
+  font-size: 100px;
+  text-shadow: white 1px 0 10px;
+}
+
+#playAgainButton {
+font-size: 30px;
+height: 50px;
+width: 300px;
 }
