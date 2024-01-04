@@ -1,15 +1,18 @@
 body {
-  background-color: #007d17;
+  background: rgb(0, 125, 23);
+  background: linear-gradient(90deg, rgba(0, 125, 23, 1) 0%, rgba(0, 243, 255, 1) 100%);
 }
 
 .handCard {
   width: 80px;
   margin-right: -20px;
 }
+
 .handCardButton {
   border: none;
   background-color: transparent;
 }
+
 .handCardImage {
   width: 80px;
   margin-right: -30px;
@@ -39,7 +42,8 @@ body {
   margin-top: 0px;
   columns: 2;
 }
-#scores{
+
+#scores {
   columns: 2;
 }
 
@@ -112,6 +116,7 @@ body {
 #player1hand {
   width: 450px;
 }
+
 #player2hand {
   width: 450px;
 }
@@ -128,14 +133,68 @@ body {
 }
 
 #playAgainButton {
-margin-left: auto;
-margin-right: auto;
-font-size: 30px;
-height: 50px;
-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  height: 50px;
+  width: 300px;
 }
 
 #playAgainButtonDiv {
   display: flex;
   justify-content: center;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
+#skunkText {
+  font-size: 40px;
+  margin-top: -70px;
+  text-align: center;
+  text-shadow: white 1px 0 10px;
+}
+
+#skunkImage {
+
+  width: 200px;
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+}
+
+#skunkDiv {
+  display: flex;
+  justify-content: center;
+}
+
+select {
+  padding: 3px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: rgba(0, 243, 255, 1);
+}
+
+.rpsForms {
+  width: 450px;
+  columns: 3;
+}
+
+.vs {
+  text-align: center;
+  font-size: 80px;
+}
+
+#shootButton {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 243, 255, 1);
+  font-size: 20px;
+}
+
+#beginGame {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 243, 255, 1);
+  font-size: 20px;
 }

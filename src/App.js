@@ -6,13 +6,14 @@ import { Player1Score } from './components/Player1Score';
 import { Player2Hand } from './components/Player2Hand';
 import { Player2Score } from './components/Player2Score';
 import './App.css';
+import { SelectForm } from './components/RPS'
 
 function App() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [hands, setHands] = useState([]);
     const [crib, setCrib] = useState([]);
-    const [gamePhase, setGamePhase] = useState('The Crib');
+    const [gamePhase, setGamePhase] = useState('rps');
     const [clickedIndexes, setClickedIndexes] = useState([]);
     const [player1Score, setPlayer1Score] = useState(0);
     const [player2Score, setPlayer2Score] = useState(0);
@@ -36,7 +37,7 @@ function App() {
     const newGame = () => {
         setHands([]);
         setCrib([]);
-        setGamePhase("The Crib");
+        setGamePhase("rps");
         setClickedIndexes([]);
         setPlayer1Score(0);
         setPlayer2Score(0);
@@ -118,7 +119,7 @@ function App() {
         return <h1>...Loading...</h1>;
     }
 
-    if (winState === false) {
+    if (winState === false && gamePhase !== "rps") {
         return (
             <React.Fragment>
                 <br></br>
@@ -162,7 +163,7 @@ function App() {
 
             </React.Fragment>
         );
-    } else if (winState === true) {
+    } else if (winState === true && gamePhase !== "rps") {
         return (
             <>
                 <img id='winGif' src='https://media4.giphy.com/media/Ceq96LjQ9Wmpq/giphy.gif' alt='win'></img>
@@ -170,17 +171,27 @@ function App() {
                 <button id='playAgainButton' className='scoreButton' type='click' onClick={newGame}>Play Again</button>
             </>
         )
-    } else {
+    } else if (winState === "skunk") {
         return (
             <>
                 <img id='winGif' src='https://media4.giphy.com/media/Ceq96LjQ9Wmpq/giphy.gif' alt='win'></img>
                 <h1 id='winH1'>Player {winner} Wins!</h1>
+                <h2 id='skunkText'>Player {loser} Got Skunked!</h2>
                 <div id='playAgainButtonDiv'>
                     <button id='playAgainButton' className='scoreButton' type='click' onClick={newGame}>Play Again</button>
                 </div>
-                <h2>Player {loser} Got Skunked!</h2>
-                <img src='https://media3.giphy.com/media/XGlouuGIURFGLsH3J6/200w.gif?cid=6c09b952j2cyply7qbqcmwcvvpqg8qlvq9eiqvldu3csozpn&ep=v1_gifs_search&rid=200w.gif&ct=s' alt='skunk' />
+                <div id='skunkDiv'>
+                    <img id='skunkImage' src='https://media3.giphy.com/media/XGlouuGIURFGLsH3J6/200w.gif?cid=6c09b952j2cyply7qbqcmwcvvpqg8qlvq9eiqvldu3csozpn&ep=v1_gifs_search&rid=200w.gif&ct=s' alt='skunk' />
+                </div>
 
+            </>
+        )
+    } else if (gamePhase === "rps") {
+        return (
+            <>
+                <h1>Gabe and Noah's Cribbage Casino</h1>
+                <h2>Play rock paper scissors to determine who deals first!</h2>
+                <SelectForm setGamePhase={setGamePhase} />
             </>
         )
     }
