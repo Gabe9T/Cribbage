@@ -1,6 +1,7 @@
 body {
   background: rgb(0, 125, 23);
   background: linear-gradient(90deg, rgba(0, 125, 23, 1) 0%, rgba(0, 243, 255, 1) 100%);
+  font-family: monospace;
 }
 
 .handCard {
@@ -176,6 +177,7 @@ select {
 }
 
 .rpsForms {
+  margin-left: 30px;
   width: 450px;
   columns: 3;
 }
@@ -197,4 +199,10 @@ select {
   border-radius: 10px;
   background-color: rgba(0, 243, 255, 1);
   font-size: 20px;
+}
+#splashPage {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  text-align: center;
 }

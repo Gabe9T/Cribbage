@@ -189,9 +189,11 @@ function App() {
     } else if (gamePhase === "rps") {
         return (
             <>
-                <h1>Gabe and Noah's Cribbage Casino</h1>
-                <h2>Play rock paper scissors to determine who deals first!</h2>
-                <SelectForm setGamePhase={setGamePhase} />
+                <div id='splashPage'>
+                    <h1>Gabe and Noah's Cribbage Casino</h1>
+                    <h2>Play rock paper scissors to determine who deals first!</h2>
+                    <SelectForm setGamePhase={setGamePhase} />
+                </div>
             </>
         )
     }
