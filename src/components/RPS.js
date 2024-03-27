@@ -1,20 +1,8 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 
-// const RPS = async () => {
-//     try {
-//         const response = await fetch(`https://rps101.pythonanywhere.com/api/v1/match?object_one=nuke&object_two=tank`);
-//         if (!response.ok) {
-//             throw new Error(`${response.status}: ${response.statusText}`);
-//         }
-//         const jsonifiedresponse = await response.json();
-//         return jsonifiedresponse.cards;
-//     } catch (error) {
-//         throw new Error(error.message);
-//     }
-// };
-
 export const SelectForm = ({ setGamePhase }) => {
-    const [values, setValues] = useState([
+    const [values] = useState([
         "Air", "Airplane", "Alien", "Axe", "Baby", "Beer", "Bicycle", "Bird", "Blood", "Book", "Bowl", "Brain", "Butter", "Cage", "Camera", "Car", "Castle", "Cat", "Chain", "Chainsaw", "Church", "Cloud", "Cockroach", "Community", "Computer", "Cross", "Cup", "Death", "Devil", "Diamond", "Dragon", "Duck", "Dynamite", "Electricity", "Fence", "Film", "Fire", "Fish", "Gold", "Grass", "Guitar", "Gun", "Heart", "Helicopter", "Home", "King", "Laser", "Law", "Lightning", "Man", "Math", "Medusa", "Money", "Monkey", "Moon", "Mountain", "Noise", "Nuke", "Paper", "Peace", "Pit", "Planet", "Platimum", "Poison", "Police", "Porcupine", "Power", "Prayer", "Prince", "Princess", "Queen", "Quicksand", "Rain", "Rainbow", "Robot", "Rock", "Satan", "School", "Scissors", "Sky", "Snake", "Spider", "Sponge", "Sun", "Sword", "T.V.", "Tank", "Toilet", "Tornado", "Train", "Tree", "Turnip", "U.F.O.", "Vampire", "Video Game", "Vulture", "Wall", "Water", "Whip", "Wolf", "Woman"
     ]);
     const [rps1, setRPS1] = useState('');
@@ -22,13 +10,6 @@ export const SelectForm = ({ setGamePhase }) => {
     const [winner, setWinner] = useState(null);
     const [loser, setLoser] = useState(null);
     const [verb, setVerb] = useState(null);
-
-    useEffect(() => {
-        // Fetch values or perform any other necessary actions
-        // Here, we just set the initial values
-
-        // If fetching data from an API or elsewhere, you can setValues(responseData);
-    }, []);
 
     const RPS = async () => {
         try {
@@ -84,7 +65,6 @@ export const SelectForm = ({ setGamePhase }) => {
                 </div>
                 <button id='shootButton' onClick={RPS}>PLAY</button>
             </>
-
         );
     } else {
         return (
