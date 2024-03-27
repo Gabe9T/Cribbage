@@ -2,7 +2,8 @@
 
 ![Cribbage game](./src/assets/gameboard.png)
 
-Live App [here](https://sound-check.netlify.app/)
+Live App [here](https://gamecribbage.netlify.app/)
+
 
 ## By Gabriel Tucker & Noah Kise
 
